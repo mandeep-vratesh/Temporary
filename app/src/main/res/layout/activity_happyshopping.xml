@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mahesh.smartebilling.Happyshopping"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan product"
+        android:id="@+id/sbutton"
+        android:width="250dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Bill"
+        android:id="@+id/vbutton"
+        android:width="250dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/sbutton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ongoin Offers"
+        android:id="@+id/obutton"
+        android:width="250dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/vbutton"
+        android:layout_alignLeft="@+id/vbutton"
+        android:layout_alignStart="@+id/vbutton"
+        android:layout_marginTop="49dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous Shopping"
+        android:id="@+id/pbutton"
+        android:width="250dp"
+        android:textSize="20dp"
+        android:layout_marginTop="61dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/sbutton"
+        android:layout_alignStart="@+id/sbutton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search product location"
+        android:id="@+id/lbutton"
+        android:width="250dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/pbutton"
+        android:layout_alignLeft="@+id/pbutton"
+        android:layout_alignStart="@+id/pbutton" />
+
+</RelativeLayout>
