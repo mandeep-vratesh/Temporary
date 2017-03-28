@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -45,8 +46,12 @@ public class Viewbill extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(Viewbill.this,Checkout.class);
-                startActivity(i);
+                if(Globals.cart.size() > 0) {
+                    Intent i = new Intent(Viewbill.this, Checkout.class);
+                    startActivity(i);
+                } else{
+                    Toast.makeText(getApplicationContext(),"You have nothing on your cart",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

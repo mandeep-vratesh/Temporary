@@ -20,10 +20,11 @@ public class ShopAgain extends Activity{
         Button no = (Button) findViewById(R.id.no);
         TextView tw = (TextView) findViewById(R.id.billid);
         tw.setText(Globals.billid);
-        
+
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Globals.billid = Globals.generateBillId();
                 Intent i = new Intent(ShopAgain.this, Happyshopping.class);
                 startActivity(i);
             }
