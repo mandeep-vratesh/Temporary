@@ -19,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.kosalgeek.genasync12.AsyncResponse;
 import com.kosalgeek.genasync12.PostResponseAsyncTask;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -28,8 +29,7 @@ import java.util.Map;
 public class Login extends AppCompatActivity implements AsyncResponse, View.OnClickListener {
 
     private RequestQueue requestQueue;
-    private static final String URL="http://10.0.3.2/ebilling/login.php";
-    private static final String URL_get_visit_and_purchase="http://10.0.3.2/ebilling/getTotalPurchaseAndVisits.php";
+    private static final String URL="http://"+Globals.IP+"/ebilling/login.php";
 
     private StringRequest request;
 
@@ -60,6 +60,13 @@ public class Login extends AppCompatActivity implements AsyncResponse, View.OnCl
                                 Globals.userid = Integer.parseInt(jsonObject.getString("success"));
                                 Globals.purchase_amt = Float.parseFloat(jsonObject.getString("total"));
                                 Globals.visits = Integer.parseInt(jsonObject.getString("visits"));
+
+                                JSONArray jsonArray = jsonObject.getJSONArray("rareProductIds");
+
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    Globals.rareAndPrevious.add(jsonArray.get(i));
+                                }
+                                Log.d("yo",Globals.rareAndPrevious.toString());
                                 Intent i=new Intent(Login.this,Happyshopping.class);
                                 startActivity(i);
                             } else {

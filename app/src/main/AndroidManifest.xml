@@ -29,7 +29,8 @@
         <activity android:name=".PreviousShopping"/>
         <activity android:name=".FindLocation"/>
         <activity android:name=".Happyshopping"/>
-
+        <activity android:name=".IfUserWantsToAddExisting"/>
+        <activity android:name=".IfUserWantsToAddRare"/>
         <activity android:name=".GetCount"/>
         <activity android:name=".Viewbill" />
         <activity android:name=".Getdiscount" />

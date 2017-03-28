@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -106,9 +107,32 @@ public class Happyshopping extends AppCompatActivity {
         } else {
             pinfo = result.getContents();
 
-            Intent intent = new Intent(getBaseContext(), GetCount.class);
-            intent.putExtra("id", pinfo);
-            startActivity(intent);
+            //check if the product is in rare object category
+            if (Globals.rareAndPrevious.contains(pinfo)) {
+                Intent intent = new Intent(getBaseContext(), IfUserWantsToAddRare.class);
+                intent.putExtra("id", pinfo);
+                startActivity(intent);
+            } else {
+
+                boolean product_is_there = false;
+                //check if the cart already has this product
+                for (HashMap<String, String> i : Globals.cart) {
+                    Log.d("==========>", i.get("product_id"));
+                    if (i.get("product_id").equals(pinfo)) {
+                        product_is_there = true;
+                        break;
+                    }
+                }
+                if (product_is_there) {
+                    Intent intent = new Intent(getBaseContext(), IfUserWantsToAddExisting.class);
+                    intent.putExtra("id", pinfo);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(getBaseContext(), GetCount.class);
+                    intent.putExtra("id", pinfo);
+                    startActivity(intent);
+                }
+            }
         }
     }
 }

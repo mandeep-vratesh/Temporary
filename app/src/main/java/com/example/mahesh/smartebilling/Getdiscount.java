@@ -27,11 +27,11 @@ import java.util.Map;
 public class Getdiscount extends AppCompatActivity implements AsyncResponse, View.OnClickListener  {
 
     private RequestQueue requestQueue;
-    private static final String URL_get_visit_and_purchase="http://10.0.3.2/ebilling/getTotalPurchaseAndVisits.php";
+    private static final String URL_get_visit_and_purchase="http://"+Globals.IP+"/ebilling/getTotalPurchaseAndVisits.php";
     private StringRequest request;
 
     WebView thisMonth;
-    private static final String URL="http://10.0.3.2/ebilling/previousMonthShopping.php?id="+Globals.userid;
+    private static final String URL="http://"+Globals.IP+"/ebilling/previousMonthShopping.php?id="+Globals.userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

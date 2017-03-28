@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class GetCount extends Activity {
     private RequestQueue requestQueue;
-    private static final String URL = "http://10.0.3.2/ebilling/test.php";
+    private static final String URL = "http://"+Globals.IP+"/ebilling/test.php";
     private StringRequest request;
     String pinfo;
     EditText count;

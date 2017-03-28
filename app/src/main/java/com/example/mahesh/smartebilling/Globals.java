@@ -10,22 +10,25 @@ import java.util.HashSet;
 
 public class Globals {
     public static ArrayList<HashMap<String,String>> cart = new ArrayList<>();
+    public static ArrayList rareAndPrevious = new ArrayList();
+
     public static String username = "NULL";
     public static int userid = -1;
     public static String billid = "1234567890";
     public static float purchase_amt;
     public static int visits;
+    public static String IP = "10.0.3.2";     //for genymotion
 
     public static String generateBillId(){
         StringBuilder bill = new StringBuilder();
         bill.append(userid).append(new java.util.Date()).append(username);
         return bill.toString().replaceAll("\\s","").toLowerCase().replaceAll(":","");
     }
-    public static String[] getProducts() {
-        String[] data = new String[cart.size()];
+    public static ArrayList<String> getProducts() {
+        ArrayList<String> data = new ArrayList<>(cart.size());
         int i = 0;
         for(HashMap<String, String> item : Globals.cart){
-            data[i++] = item.get("product_name");
+            data.add(item.get("product_name"));
         }
         return data;
     }
@@ -65,21 +68,30 @@ public class Globals {
         return ids;
     }
 
-    public static int[] getCounts() {
-        int[] counts = new int[cart.size()];
+    public static ArrayList<Integer> getCounts() {
+        ArrayList<Integer> counts = new ArrayList<>(cart.size());
         int i = 0;
         for(HashMap<String, String> item : Globals.cart){
-            counts[i++] = Integer.parseInt(item.get("product_count"));
+            counts.add(Integer.parseInt(item.get("product_count")));
         }
         return counts;
     }
 
-    public static float[] getPrices() {
-        float[] prices = new float[cart.size()];
+    public static ArrayList<Float> getPrices() {
+        ArrayList<Float> prices = new ArrayList<>(cart.size());
         int i = 0;
         for(HashMap<String, String> item : Globals.cart){
-            prices[i++] = Integer.parseInt(item.get("product_price"));
+            prices.add(Float.parseFloat(item.get("product_price")));
         }
         return prices;
+    }
+
+    public static ArrayList<Float> getWeights() {
+        ArrayList<Float> weights = new ArrayList<>(cart.size());
+        int i = 0;
+        for(HashMap<String, String> item : Globals.cart){
+            weights.add(Float.parseFloat(item.get("product_weight")));
+        }
+        return weights;
     }
 }

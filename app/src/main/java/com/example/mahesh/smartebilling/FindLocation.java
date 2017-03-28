@@ -26,7 +26,7 @@ import java.util.Map;
  */
 public class FindLocation extends Activity {
 
-    private static final String URL="http://10.0.3.2/ebilling/productsLocationSearch.php";
+    private static final String URL="http://"+Globals.IP+"/ebilling/productsLocationSearch.php";
     WebView searchResults;
 
     @Override

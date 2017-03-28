@@ -5,37 +5,36 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 /**
- * Created by MANDEEP on 3/1/2017.
+ * Created by MANDEEP on 3/15/2017.
  */
-public class ShopAgain extends Activity{
+public class IfUserWantsToAddExisting extends Activity{
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.shopagain);
+        setContentView(R.layout.ifuserstillwantstoadd);
+
+        id = getIntent().getStringExtra("id");
 
         Button yes = (Button) findViewById(R.id.yes);
         Button no = (Button) findViewById(R.id.no);
-        TextView tw = (TextView) findViewById(R.id.billid);
-        tw.setText(Globals.billid);
-        
+
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ShopAgain.this, Happyshopping.class);
-                startActivity(i);
+                Intent intent = new Intent(getBaseContext(), GetCount.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
             }
         });
 
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent homeIntent = new Intent(Intent.ACTION_MAIN);
-                homeIntent.addCategory( Intent.CATEGORY_HOME );
-                homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(homeIntent);
+                Intent intent = new Intent(getBaseContext(), Happyshopping.class);
+                startActivity(intent);
             }
         });
     }

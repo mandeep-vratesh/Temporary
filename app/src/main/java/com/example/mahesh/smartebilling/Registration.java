@@ -66,7 +66,7 @@ public class Registration extends AppCompatActivity {
                     }
                 });
 
-                task.execute("http://10.0.3.2/ebilling/Registration.php") ;
+                task.execute("http://"+Globals.IP+"/ebilling/Registration.php") ;
 
                   }
         });

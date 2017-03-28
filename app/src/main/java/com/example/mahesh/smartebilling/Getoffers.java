@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class Getoffers extends AppCompatActivity {
     Button discount;
     WebView adminOffers;
-    private static final String URL="http://10.0.3.2/ebilling/adminOffers.php";
+    private static final String URL="http://"+Globals.IP+"/ebilling/adminOffers.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

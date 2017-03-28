@@ -36,7 +36,7 @@ import java.util.Map;
 public class Checkout extends Activity {
 
     private RequestQueue requestQueue;
-    private static final String URL="http://10.0.3.2/ebilling/addToPurchases.php";
+    private static final String URL="http://"+Globals.IP+"/ebilling/addToPurchases.php";
     private StringRequest request;
 
     Button pay;
@@ -73,7 +73,7 @@ public class Checkout extends Activity {
                 request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("==============>",response+" "+Arrays.toString(Globals.getProductsID())+" "+Arrays.toString(Globals.getCounts()));
+                        Log.d("==============>",response+" "+Arrays.toString(Globals.getProductsID())+" "+Globals.getCounts());
 
                         if(response.contains("success")){
 
@@ -86,6 +86,8 @@ public class Checkout extends Activity {
 
                             Intent i=new Intent(Checkout.this,ShopAgain.class);
                             startActivity(i);
+                        }else{
+                            Toast.makeText(getApplicationContext(), "error_response: " + response, Toast.LENGTH_LONG).show();
                         }
                     }
                 }, new Response.ErrorListener() {
@@ -100,7 +102,7 @@ public class Checkout extends Activity {
                         hashmap.put("billid", Globals.billid);
                         hashmap.put("cid", Integer.toString(Globals.userid));
                         hashmap.put("pid", Arrays.toString(Globals.getProductsID()));
-                        hashmap.put("counts", Arrays.toString(Globals.getCounts()));
+                        hashmap.put("counts", Globals.getCounts().toString());
                         return hashmap;
                     }
                 };

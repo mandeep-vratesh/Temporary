@@ -10,7 +10,7 @@ import android.webkit.WebView;
 public class PreviousShopping extends Activity{
 
     WebView previous;
-    private static final String URL="http://10.0.3.2/ebilling/previousShopping.php?id="+Globals.userid;
+    private static final String URL="http://"+Globals.IP+"/ebilling/previousShopping.php?id="+Globals.userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

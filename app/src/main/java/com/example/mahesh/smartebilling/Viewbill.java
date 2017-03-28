@@ -20,6 +20,7 @@ public class Viewbill extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
+    TextView totaloncart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +32,14 @@ public class Viewbill extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new RecyclerAdapter();
+        totaloncart = (TextView) findViewById(R.id.totaloncart);
+        totaloncart.setText(Integer.toString(Globals.getTotalPriceOnCart()));
+
+        adapter = new RecyclerAdapter(totaloncart);
         recyclerView.setAdapter(adapter);
 
         TextView logged_in_user = (TextView) findViewById(R.id.customerName);
         logged_in_user.setText(Globals.username);
-
-        TextView totaloncart = (TextView) findViewById(R.id.totaloncart);
-        totaloncart.setText(Integer.toString(Globals.getTotalPriceOnCart()));
 
         Button checkout = (Button) findViewById(R.id.checkout);
         checkout.setOnClickListener(new View.OnClickListener() {
