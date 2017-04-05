@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2017 at 02:33 PM
+-- Generation Time: Apr 05, 2017 at 06:09 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `pass` varchar(20) DEFAULT NULL,
   `cuname` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `customer`
@@ -109,6 +109,7 @@ CREATE TABLE IF NOT EXISTS `productlist` (
   `side` varchar(10) NOT NULL,
   `section` varchar(10) NOT NULL,
   `weight` int(10) DEFAULT NULL,
+  `israre` int(2) NOT NULL,
   PRIMARY KEY (`pid`),
   UNIQUE KEY `pname` (`pname`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -117,8 +118,9 @@ CREATE TABLE IF NOT EXISTS `productlist` (
 -- Dumping data for table `productlist`
 --
 
-INSERT INTO `productlist` (`pid`, `pname`, `price`, `floor`, `side`, `section`, `weight`) VALUES
-(1, 'ParleG', 20, 'ground', 'left', 'biscuit', NULL);
+INSERT INTO `productlist` (`pid`, `pname`, `price`, `floor`, `side`, `section`, `weight`, `israre`) VALUES
+(1, 'ParleG', 20, 'ground', 'left', 'biscuit', 500, 0),
+(2, 'Red Dupatta', 300, 'first', 'mid', 'women', 200, 1);
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `purchases` (
   PRIMARY KEY (`purchaseid`),
   KEY `fk_customer` (`cid`),
   KEY `fk_product` (`pid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
 -- Dumping data for table `purchases`
@@ -146,7 +148,10 @@ INSERT INTO `purchases` (`billid`, `pid`, `cid`, `purchaseid`, `timestamp`, `cou
 ('100', 1, 1, 1, '2017-02-14 18:30:00', 10),
 ('1wedmar01121600gmt2017abc', 1, 1, 26, '2017-03-01 12:16:04', 5),
 ('1wedmar01121731gmt2017abc', 1, 1, 27, '2017-03-01 12:17:25', 1),
-('1wedmar01124209gmt2017abc', 1, 1, 28, '2017-03-01 12:42:02', 2);
+('1wedmar01124209gmt2017abc', 1, 1, 28, '2017-03-01 12:42:02', 2),
+('1monmar06094315gmt2017abc', 1, 1, 29, '2017-03-06 09:47:20', 8),
+('1monmar27212721gmt2017abc', 1, 1, 31, '2017-03-28 04:33:23', 1),
+('1monmar27212957gmt2017abc', 1, 1, 32, '2017-03-28 04:36:16', 1);
 
 --
 -- Constraints for dumped tables

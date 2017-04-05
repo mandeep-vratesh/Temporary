@@ -17,7 +17,7 @@ public class Globals {
     public static String billid = "1234567890";
     public static float purchase_amt;
     public static int visits;
-    public static String IP = "10.0.3.2";     //for genymotion
+    public static String IP = "ebilling2.hol.es";     //for genymotion
 
     public static String generateBillId(){
         StringBuilder bill = new StringBuilder();
